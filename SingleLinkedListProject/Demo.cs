@@ -52,12 +52,12 @@ namespace SingleLinkedListProject
                         list.CountNodes();
                         break;
                     case 3:
-                        Console.Write("Enter the element to be searched :");
+                        Console.Write("Enter the element to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
                         list.Search(data);
                         break;
                     case 4:
-                        Console.Write("Enter the element to be inserted:");
+                        Console.Write("Enter the element to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
                         list.InsertInBeginning(data);
                         break;
@@ -96,7 +96,7 @@ namespace SingleLinkedListProject
                     case 11:
                         Console.Write("Enter the element to be deleted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.DeleteNode(data);
+                        list.DeleteLastNode(data);
                         break;
                     case 12:
                         list.ReverseLIst();
