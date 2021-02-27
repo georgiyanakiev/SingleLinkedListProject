@@ -114,27 +114,148 @@ namespace SingleLinkedListProject
 
         public void InsertAfter(int data, int x)
         {
-            throw new NotImplementedException();
+            Node p = start;
+            while (p != null)
+            {
+                if (p.info == x)
+                    break;
+                p = p.link;
+            }
+
+            if (p == null)
+                Console.WriteLine(x + " not present in the list");
+            else
+            {
+                Node temp = new Node(data);
+                temp.link = p.link;
+                p.link = temp;
+            }
         }
 
         public void InsertBefore(int data, int x)
         {
-            throw new NotImplementedException();
+            Node temp;
+
+            //If list is empty
+            if (start == null)
+            {
+                Console.WriteLine("List is empty");
+                return;
+            }
+
+            // x is in first node, new node is to be inserted before first node
+
+            if (x == start.info)
+            {
+                temp = new Node(data);
+                temp.link = start;
+                start = temp;
+                return;
+            }
+
+            // Find reference to predecessor of node containing x 
+
+            Node p = start;
+
+            while (p.link != null)
+            {
+                if (p.link.info == x)
+                    break;
+                p = p.link;
+            }
+
+            if (p.link == null)
+                Console.WriteLine(x + " not present in the list");
+            else
+            {
+                temp = new Node(data);
+                temp.link = p.link;
+                p.link = temp;
+                
+            }
+        }
+
+        public void DeleteLastNode(int data)
+        {
+            if (start == null)
+                return;
+
+            if (start.link == null)
+            {
+                start = null;
+                return;
+            }
+
+            Node p = start;
+            while (p.link.link != null)
+                p = p.link;
+            p.link = null;
+        }
+
+        public void DeleteNode(int x)
+        {
+            if (start == null)
+            {
+                Console.WriteLine("List is empty\n");
+                return;
+            }
+            // Deletion of first node
+            if (start.info == x)
+            {
+                start = start.link;
+                return;
+            }
+            // Deletion in between or at the end
+            Node p = start;
+            while (p.link != null)
+            {
+                if (p.link != null)
+                    break;
+                p = p.link;
+            }
+
+            if (p.link == null)
+                Console.WriteLine("Element " + x + " not in list");
+            else
+                p.link = p.link.link;
         }
 
         public void InsertAtPosition(int data, int k)
         {
-            throw new NotImplementedException();
-        }
+            Node temp;
+            int i;
+
+            if (k == 1)
+            {
+                temp = new Node(data);
+                temp.link = start;
+                start = temp;
+                return;
+            }
+
+            Node p = start;
+            for (i = 1; i < k - 1 && p != null; i++) // find a reference to k-1 node
+                p = p.link;
+            if (p == null)
+                Console.WriteLine("You can insert only upto " + i + " the position");
+            else
+            {
+                temp = new Node(data);
+                temp.link = p.link;
+                p.link = temp;
+            }
+        }   
 
         public void DeleteFirstNode()
         {
-            throw new NotImplementedException();
+            if (start == null)
+                return;
+            start = start.link;
         }
 
-        public void DeleteNode(int data)
+        public void DeleteLastNode()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ReverseLIst()
@@ -172,9 +293,6 @@ namespace SingleLinkedListProject
             throw new NotImplementedException();
         }
 
-        public void DeleteLastNode()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
