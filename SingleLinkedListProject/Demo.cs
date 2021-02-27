@@ -91,7 +91,7 @@ namespace SingleLinkedListProject
                         list.DeleteFirstNode();
                         break;
                     case 10:
-                        list.DeleteLastNode();
+                        list.DeleteNode();
                         break;
                     case 11:
                         Console.Write("Enter the element to be deleted :");
@@ -99,7 +99,7 @@ namespace SingleLinkedListProject
                         list.DeleteLastNode(data);
                         break;
                     case 12:
-                        list.ReverseLIst();
+                        list.ReverseList();
                         break;
                     case 13:
                         list.BubbleSortExData();

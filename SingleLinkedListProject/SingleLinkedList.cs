@@ -175,6 +175,11 @@ namespace SingleLinkedListProject
             }
         }
 
+        public void DeleteNode()
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteLastNode(int data)
         {
             if (start == null)
@@ -252,15 +257,22 @@ namespace SingleLinkedListProject
                 return;
             start = start.link;
         }
+  
 
-        public void DeleteLastNode()
+        public void ReverseList()
         {
-            
-        }
+            Node prev, p, next;
+            prev = null;
+            p = start;
+            while (p != null)
+            {
+                next = p.link;
+                p.link = prev;
+                prev = p;
+                p = next;
 
-        public void ReverseLIst()
-        {
-            throw new NotImplementedException();
+            }
+            start = prev;
         }
 
         public void BubbleSortExData()
