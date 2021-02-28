@@ -277,12 +277,47 @@ namespace SingleLinkedListProject
 
         public void BubbleSortExData()
         {
-            throw new NotImplementedException();
+            Node end, p, q;
+
+            for (end = null; end != start.link; end = p)
+            {
+                for (p = start; p.link != end; p = p.link)
+                {
+                    q = p.link;
+                    if (p.info > q.info)
+                    {
+                        int temp = p.info;
+                        p.info = q.info;
+                        q.info = temp;
+                    }
+                }
+            }
         }
 
         public void BubbleSortExLinks()
         {
-            throw new NotImplementedException();
+            Node end, r, p, q, temp;
+
+            for (end = null; end != start.link; end = p)
+            {
+                 for ( r = p = start; p.link != end;  r = p, p = p.link)
+                {
+                    q = p.link;
+                    if (p.info > q.info)
+                    {
+                        p.link = q.link;
+                        q.link = p;
+                        if (p != start)
+                            r.link = q;
+                        else
+                            start = q;
+                        temp = p;
+                        p = q;
+                        q = temp;
+                    }
+                }
+                     
+             }
         }
 
         public void MergeSort()
