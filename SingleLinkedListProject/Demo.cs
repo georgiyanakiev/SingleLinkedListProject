@@ -108,7 +108,7 @@ namespace SingleLinkedListProject
                         list.BubbleSortExLinks();
                         break;
                     case 15:
-                        list.MergeSort();
+                        list.Merge1();
                         break;
                     case 16:
                         Console.Write("Enter the element at which the cycle has to be inserted :");
