@@ -225,6 +225,7 @@ namespace SingleLinkedListProject
                 p.link = p.link.link;
         }
 
+
         public void InsertAtPosition(int data, int k)
         {
             Node temp;
@@ -320,11 +321,65 @@ namespace SingleLinkedListProject
              }
         }
 
-        public void MergeSort()
+        public void Merge1()
         {
             throw new NotImplementedException();
         }
+        public SingleLinkedList Merge1(Node start, SingleLinkedList list)
+        {
+            SingleLinkedList mergeList = new SingleLinkedList();
+            mergeList.start = Merge1(start, list.start);
+            return mergeList;
+        }
 
+        private Node Merge1(Node p1, Node p2)
+        {
+            Node startM;
+            if (p1.info <= p2.info)
+            {
+                startM = new Node(p1.info);
+                p1 = p1.link;
+            }
+            else
+            {
+                startM = new Node(p2.info);
+                p2 = p2.link;
+            }
+            Node pM = startM; 
+
+            while (p1 != null && p2 != null)
+            {
+                if (p1.info <= p2.info)
+                {
+                    pM.link = new Node(p1.info);
+                    p1 = p1.link;
+                }
+                else
+                {
+                    pM.link = new Node(p2.info);
+                    p2 = p2.link;
+                }
+                pM = pM.link;
+            }
+            //If second list has finished and elements left in first list
+            while (p1 != null)
+            {
+                pM.link = new Node(p1.info);
+                p1 = p1.link;
+                pM = pM.link;
+            }
+
+            // If first list has finished and elements left in second list
+            while (p2 !=null)
+            {
+                pM.link = new Node(p2.info);
+                p2 = p2.link;
+                pM = pM.link;
+            }
+            return startM;
+        }
+             
+           
         public void InsertCycle(int data)
         {
             throw new NotImplementedException();
