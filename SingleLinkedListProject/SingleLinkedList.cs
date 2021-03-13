@@ -35,6 +35,11 @@ namespace SingleLinkedListProject
             Console.WriteLine();
         }
 
+        internal SingleLinkedList Merge1(SingleLinkedList list2)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateList()
         {
             int i,n,data;
@@ -50,6 +55,11 @@ namespace SingleLinkedListProject
                 data = Convert.ToInt32(Console.ReadLine());
                 InsertAtEnd(data);
             }
+        }
+
+        internal SingleLinkedList Merge2(SingleLinkedList list2)
+        {
+            throw new NotImplementedException();
         }
 
         public void CountNodes()
@@ -378,8 +388,51 @@ namespace SingleLinkedListProject
             }
             return startM;
         }
-             
-           
+
+        public SingleLinkedList Merge2(Node start, SingleLinkedList list)
+        {
+            SingleLinkedList mergeList = new SingleLinkedList();
+            mergeList.start = Merge2(start, list.start);
+            return mergeList;
+        }
+
+        private Node Merge2(Node p1, Node p2)
+        {
+            Node startM;
+            if (p1.info <= p2.info)
+            {
+                startM = p1;
+                p1 = p1.link;
+            }
+            else
+            {
+                startM = p2;
+                p2 = p2.link;
+            }
+            Node pM = startM;
+
+            while (p1 != null && p2 != null)
+            {
+                if (p1.info <= p2.info)
+                {
+                    pM.link = p1;
+                    pM = pM.link;
+                    p1 = p1.link;
+                }
+                else
+                {
+                    pM.link = p2;
+                    pM = pM.link;
+                    p2 = p2.link;
+                }         
+            }
+            if (p1 == null)
+                pM.link = p2;
+            else
+                pM.link = p1;
+            return startM;
+        }
+
         public void InsertCycle(int data)
         {
             throw new NotImplementedException();
