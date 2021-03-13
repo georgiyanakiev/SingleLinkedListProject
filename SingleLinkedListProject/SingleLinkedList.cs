@@ -35,11 +35,7 @@ namespace SingleLinkedListProject
             Console.WriteLine();
         }
 
-        internal SingleLinkedList Merge1(SingleLinkedList list2)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void CreateList()
         {
             int i,n,data;
@@ -55,11 +51,6 @@ namespace SingleLinkedListProject
                 data = Convert.ToInt32(Console.ReadLine());
                 InsertAtEnd(data);
             }
-        }
-
-        internal SingleLinkedList Merge2(SingleLinkedList list2)
-        {
-            throw new NotImplementedException();
         }
 
         public void CountNodes()
@@ -260,7 +251,12 @@ namespace SingleLinkedListProject
                 temp.link = p.link;
                 p.link = temp;
             }
-        }   
+        }
+
+        internal void MergeSort()
+        {
+            throw new NotImplementedException();
+        }
 
         public void DeleteFirstNode()
         {
@@ -331,14 +327,10 @@ namespace SingleLinkedListProject
              }
         }
 
-        public void Merge1()
-        {
-            throw new NotImplementedException();
-        }
-        public SingleLinkedList Merge1(Node start, SingleLinkedList list)
+        public SingleLinkedList Merge1(SingleLinkedList list1)
         {
             SingleLinkedList mergeList = new SingleLinkedList();
-            mergeList.start = Merge1(start, list.start);
+            mergeList.start = Merge1(start, list1.start);
             return mergeList;
         }
 
@@ -389,10 +381,10 @@ namespace SingleLinkedListProject
             return startM;
         }
 
-        public SingleLinkedList Merge2(Node start, SingleLinkedList list)
+        public SingleLinkedList Merge2(SingleLinkedList list2)
         {
             SingleLinkedList mergeList = new SingleLinkedList();
-            mergeList.start = Merge2(start, list.start);
+            mergeList.start = Merge2(start, list2.start);
             return mergeList;
         }
 
