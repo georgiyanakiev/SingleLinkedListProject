@@ -12,9 +12,29 @@ namespace SingleLinkedListProject
         {
             int choice, data, k, x;
 
-            SingleLinkedList list = new SingleLinkedList();
+            SingleLinkedList list1 = new SingleLinkedList();
+            SingleLinkedList list2 = new SingleLinkedList();
 
-            list.CreateList();
+            list1.CreateList();
+            list2.CreateList();
+
+            list1.BubbleSortExData();
+            list2.BubbleSortExData();
+
+            Console.WriteLine("First List - "); list1.DisplayList();
+            Console.WriteLine("Second List - "); list2.DisplayList();
+
+            SingleLinkedList list3;
+
+            list3 = list1.Merge1(list2);
+            Console.WriteLine("Merged List - "); list3.DisplayList();
+            Console.WriteLine("First List - "); list1.DisplayList();
+            Console.WriteLine("Second List - "); list2.DisplayList();
+
+            list3 = list1.Merge2(list2);
+            Console.WriteLine("Merged List - "); list3.DisplayList();
+
+
 
             while (true)
             {
@@ -46,83 +66,83 @@ namespace SingleLinkedListProject
                 switch (choice)
                 {
                     case 1:
-                        list.DisplayList();
+                        list1.DisplayList();
                         break;
                     case 2:
-                        list.CountNodes();
+                        list1.CountNodes();
                         break;
                     case 3:
                         Console.Write("Enter the element to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.Search(data);
+                        list1.Search(data);
                         break;
                     case 4:
                         Console.Write("Enter the element to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.InsertInBeginning(data);
+                        list1.InsertInBeginning(data);
                         break;
                     case 5:
                         Console.Write("Enter the element to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.InsertAtEnd(data);
+                        list1.InsertAtEnd(data);
                         break;
                     case 6:
                         Console.Write("Enter the element to be searched :");
                         data = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Enter the element after which to insert : ");
                         x = Convert.ToInt32(Console.ReadLine());
-                        list.InsertAfter(data, x);
+                        list1.InsertAfter(data, x);
                         break;
                     case 7:
                         Console.Write("Enter the element to be searched :");
                         data = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Enter the element before which to insert : ");
                         x = Convert.ToInt32(Console.ReadLine());
-                        list.InsertBefore(data, x);
+                        list1.InsertBefore(data, x);
                         break;
                     case 8:
                         Console.Write("Enter the element to be searched :");
                         data = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Enter the position at which to insert : ");
                         k = Convert.ToInt32(Console.ReadLine());
-                        list.InsertAtPosition(data, k);
+                        list1.InsertAtPosition(data, k);
                         break;
                     case 9:
-                        list.DeleteFirstNode();
+                        list1.DeleteFirstNode();
                         break;
                     case 10:
-                        list.DeleteNode();
+                        list1.DeleteNode();
                         break;
                     case 11:
                         Console.Write("Enter the element to be deleted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.DeleteLastNode(data);
+                        list1.DeleteLastNode(data);
                         break;
                     case 12:
-                        list.ReverseList();
+                        list1.ReverseList();
                         break;
                     case 13:
-                        list.BubbleSortExData();
+                        list1.BubbleSortExData();
                         break;
                     case 14:
-                        list.BubbleSortExLinks();
+                        list1.BubbleSortExLinks();
                         break;
                     case 15:
-                        list.Merge1();
+                        list1.Merge1();
                         break;
                     case 16:
                         Console.Write("Enter the element at which the cycle has to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
-                        list.InsertCycle(data);
+                        list1.InsertCycle(data);
                         break;
                     case 17:
-                        if (list.HasCycle())
+                        if (list1.HasCycle())
                             Console.WriteLine("List has a cycle");
                         else
                             Console.WriteLine("List does not have a cycle");
                         break;
                     case 18:
-                        list.RemoveCycle();
+                        list1.RemoveCycle();
                         break;
                     default:
                         Console.WriteLine("Wrong choice");
