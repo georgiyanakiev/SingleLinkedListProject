@@ -21,6 +21,7 @@ namespace SingleLinkedListProject
             list1.BubbleSortExData();
             list2.BubbleSortExData();
 
+
             Console.WriteLine("First List - "); list1.DisplayList();
             Console.WriteLine("Second List - "); list2.DisplayList();
 
@@ -34,6 +35,9 @@ namespace SingleLinkedListProject
             list3 = list1.Merge2(list2);
             Console.WriteLine("Merged List - "); list3.DisplayList();
 
+            Console.WriteLine("First List - "); list1.DisplayList();
+            Console.WriteLine("Second List - "); list2.DisplayList();
+        
 
 
             while (true)
@@ -128,7 +132,7 @@ namespace SingleLinkedListProject
                         list1.BubbleSortExLinks();
                         break;
                     case 15:
-                        list1.Merge1();
+                        list1.MergeSort();
                         break;
                     case 16:
                         Console.Write("Enter the element at which the cycle has to be inserted :");
