@@ -253,9 +253,27 @@ namespace SingleLinkedListProject
             }
         }
 
-        internal void MergeSort()
+        public void MergeSort()
         {
-            throw new NotImplementedException();
+            start = MergeSortRec(start);
+        }
+
+        private Node MergeSortRec(Node listStart)
+        {
+            if (listStart == null || listStart.link == null)// if list empty or has one element 
+                return listStart;
+
+            Node start1 = listStart;
+            Node start2 = DivideList(listStart);
+            start1 = MergeSortRec(start1);
+            start2 = MergeSortRec(start2);
+            Node startM = Merge2(start1, start2);
+            return startM;
+        }
+
+        private Node DivideList(Node p)
+        {
+            return start;
         }
 
         public void DeleteFirstNode()
@@ -327,10 +345,10 @@ namespace SingleLinkedListProject
              }
         }
 
-        public SingleLinkedList Merge1(SingleLinkedList list1)
+        public SingleLinkedList Merge1(SingleLinkedList list)
         {
             SingleLinkedList mergeList = new SingleLinkedList();
-            mergeList.start = Merge1(start, list1.start);
+            mergeList.start = Merge1(start, list.start);
             return mergeList;
         }
 
