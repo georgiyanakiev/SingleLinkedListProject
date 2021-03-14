@@ -262,7 +262,7 @@ namespace SingleLinkedListProject
         {
             if (listStart == null || listStart.link == null)// if list empty or has one element 
                 return listStart;
-
+            //if more than one element
             Node start1 = listStart;
             Node start2 = DivideList(listStart);
             start1 = MergeSortRec(start1);
@@ -273,7 +273,15 @@ namespace SingleLinkedListProject
 
         private Node DivideList(Node p)
         {
-            return start;
+            Node q = p.link.link;
+            while (q != null && q.link != null)
+            {
+                p = p.link;
+                q = q.link.link;
+            }
+            Node start2 = p.link;
+            p.link = null;
+            return start2;
         }
 
         public void DeleteFirstNode()
