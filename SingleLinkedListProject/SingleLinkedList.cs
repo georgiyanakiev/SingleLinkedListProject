@@ -451,9 +451,24 @@ namespace SingleLinkedListProject
             return startM;
         }
 
-        public void InsertCycle(int data)
+        public void InsertCycle(int x)
         {
-            throw new NotImplementedException();
+            if (start == null)
+                return;
+
+            Node p = start, px = null, prev = null;
+
+            while (p!=null)
+            {
+                if (p.info == x)
+                    px = p;
+                prev = p;
+                p = p.link;
+            }
+            if (px != null)
+                prev.link = px;
+            else
+                Console.WriteLine(x + "not present in list");
         }
 
         public bool HasCycle()
