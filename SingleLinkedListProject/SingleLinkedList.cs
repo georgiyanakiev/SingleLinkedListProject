@@ -458,12 +458,64 @@ namespace SingleLinkedListProject
 
         public bool HasCycle()
         {
-            throw new NotImplementedException();
+            if (FindCycle() == null)
+                return false;
+            else
+                return true;
+        }
+
+        private Node FindCycle()
+        {
+            if (start == null || start.link == null)
+                return null;
+
+            Node slowR = start, fastR = start;
+            while (fastR != null && fastR.link != null)
+            {
+                slowR = slowR.link;
+                fastR = fastR.link.link;
+                if (slowR == fastR)
+                    return slowR;
+            }
+            return null;
         }
 
         public void RemoveCycle()
         {
-            throw new NotImplementedException();
+            Node c = FindCycle();
+            if (c == null)
+                return;
+            Console.WriteLine("Node at which the cycle was detected is " + c.info);
+
+            Node p = c, q = c;
+            int lenCycle = 0;
+            do
+            {
+                lenCycle++;
+                q = q.link;
+            }
+            while (p != q);
+            Console.WriteLine("Length of cycle is : " + lenCycle);
+
+            int lenRemList = 0;
+            p = start;
+            while (p != q)
+            {
+                lenRemList++;
+                p = p.link;
+                q = q.link;
+            }
+
+            Console.WriteLine("Number of nodes not included in the cycle are : " + lenRemList);
+
+            int lengthList = lenCycle + lenRemList;
+            Console.WriteLine("Length of the list is : " + lengthList);
+
+            p = start;
+
+            for (int i = 1; i <= lengthList - 1; i++)
+                p = p.link;
+            p.link = null;
         }
 
        
