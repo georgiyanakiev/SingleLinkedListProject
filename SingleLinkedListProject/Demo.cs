@@ -15,6 +15,10 @@ namespace SingleLinkedListProject
             SingleLinkedList list1 = new SingleLinkedList();
             SingleLinkedList list2 = new SingleLinkedList();
 
+            DoubleLinkedList list = new DoubleLinkedList();
+            list.CreateList();
+
+
             list1.CreateList();
             list2.CreateList();
 
