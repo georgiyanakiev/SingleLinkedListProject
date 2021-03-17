@@ -8,6 +8,8 @@ namespace SingleLinkedListProject
 {
     class Node
     {
+        public Node prev;
+        public Node next;
         public int info;
         public Node link;
 
@@ -15,6 +17,8 @@ namespace SingleLinkedListProject
         {
             info = i;
             link = null;
+            prev = null;
+            next = null;
         }
     }
 }
