@@ -74,6 +74,13 @@ namespace SingleLinkedListProject
                 InsertAtEnd(data);
             }
         }
+
+        private void InsertInEmptyList(int data)
+        {
+            Node temp = new Node(data);
+            start = temp;
+        }
+
         public void InsertAfter(int data, int x)
         {
             Node temp = new Node(data);
@@ -91,12 +98,52 @@ namespace SingleLinkedListProject
             {
                 temp.prev = p;
                 temp.next = p.next;
+                if (p.next != null)
+                    p.next.prev = temp;
+                p.next = temp;
             }
         }
-            
-        public void InsertInEmptyList(int data)
+
+        public void InsertBefore(int data, int x)
         {
-            throw new NotImplementedException();
+            if (start == null )
+            {
+                Console.WriteLine("List is empty");
+                    return;
+            }
+            if (start.info == x )
+            {
+                Node temp = new Node(data);
+                temp.next = start;
+                start.prev = temp;
+                start = temp;
+                return;
+            }
+
+            Node p = start;
+            while (p != null )
+            {
+                if (p.info == x)
+                    break;
+                p = p.next;
+            }
+
+            if (p == null)
+                Console.WriteLine(x + " not present in the list");
+            else
+            {
+                Node temp = new Node(data);
+                temp.prev = p.prev;
+                temp.next = p;
+                p.prev.next = temp;
+                p.prev = temp;
+            }
+
+
+
         }
+
+
+       
     }
 }
