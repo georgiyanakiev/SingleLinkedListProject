@@ -45,12 +45,24 @@ namespace SingleLinkedListProject
 
             if (n == 0)
                 return;
-            for (i = 1; i<=n; i++)
+            
+                Console.Write("Enter the fist element to be inserted : ");
+                data = Convert.ToInt32(Console.ReadLine());
+            InsertInEmptyList(data);
+
+            for (i = 2; i <= n; i++)
             {
-                Console.Write("Enter the element to be inserted : ");
+                Console.WriteLine("Enter the net element to be inserted : ");
                 data = Convert.ToInt32(Console.ReadLine());
                 InsertAtEnd(data);
             }
+            
+        }
+
+        public void InsertInEmptyList(int data)
+        {
+            Node temp = new Node(data);
+            start = temp;
         }
 
         public void CountNodes()
