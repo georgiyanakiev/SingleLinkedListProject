@@ -188,28 +188,6 @@ namespace SingleLinkedListProject
             }
         }
 
-        public void DeleteNode()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteLastNode(int data)
-        {
-            if (start == null)
-                return;
-
-            if (start.link == null)
-            {
-                start = null;
-                return;
-            }
-
-            Node p = start;
-            while (p.link.link != null)
-                p = p.link;
-            p.link = null;
-        }
-
         public void DeleteNode(int x)
         {
             if (start == null)
@@ -236,6 +214,40 @@ namespace SingleLinkedListProject
                 Console.WriteLine("Element " + x + " not in list");
             else
                 p.link = p.link.link;
+        }
+
+        internal void DeleteNode()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteFirstNode()
+        {
+            if (start == null) //  list is empty
+                return;
+            if (start.next == null)
+            {
+                start = null;
+                return;
+            }
+            start = start.next;
+            start.prev = null;
+        }
+        public void DeleteLastNode(int data)
+        {
+            if (start == null)
+                return;
+
+            if (start.link == null)
+            {
+                start = null;
+                return;
+            }
+
+            Node p = start;
+            while (p.link.link != null)
+                p = p.link;
+            p.link = null;
         }
 
 
@@ -296,14 +308,24 @@ namespace SingleLinkedListProject
             return start2;
         }
 
-        public void DeleteFirstNode()
-        {
-            if (start == null)
-                return;
-            start = start.link;
-        }
-  
+        
 
+        public void DeleteLastNode()
+        {
+            if (start == null) // list is empty
+                return;
+            if (start.next == null) // list has only one node
+            {
+                start = null;
+                return;
+            }
+            Node p = start;
+            while (p.next != null)
+                p = p.next;
+            p.prev.next = null;
+        }
+
+        
         public void ReverseList()
         {
             Node prev, p, next;
