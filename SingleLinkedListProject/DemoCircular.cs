@@ -8,7 +8,7 @@ namespace SingleLinkedListProject
 {
     class DemoCircular
     {
-        static void Main(string[] args)
+        static void MainCir(string[] args)
         {
             int choice, data, x;
 
