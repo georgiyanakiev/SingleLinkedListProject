@@ -101,17 +101,47 @@ namespace SingleLinkedListProject
 
         public void DeleteFirstNode()
         {
-            throw new NotImplementedException();
+            if (last == null) // list is empty
+                return;
+            if (last.link == last) // if the list has only one node
+            {
+                last = null;
+                return;
+            }
+            last.link = last.link.link;
         }
 
         public void DeleteLastNode()
         {
-            throw new NotImplementedException();
+            if (last == null) // list is empty
+                return;
+            if (last.link == last) // list has only one node
+            {
+                last = null;
+                return;
+            }
+            Node p = last.link;
+            while (p.link != last)
+                p = p.link;
+            p.link = last.link;
+            last = p;
         }
 
-        public void DeleteNode(int data)
+        public void DeleteNode(int x)
         {
-            throw new NotImplementedException();
+            if (last == null) // list is empty
+                return;
+            if (last.link == last && last.info == x) // Deletion of only node
+            {
+                last = null;
+                return;
+            }
+
+            if (last.link.info == x ) // Deletion of first node
+            {
+                last.link = last.link.link;
+                return;
+            }
         }
     }
 }
