@@ -85,37 +85,34 @@ namespace DoubleLinkedListProject
                         list.DeleteFirstNode();
                         break;
                     case 10:
-                        list.DeleteNode();
+                        list.ReverseList();
                         break;
                     case 11:
                         Console.Write("Enter the element to be deleted :");
                         data = Convert.ToInt32(Console.ReadLine());
                         list.DeleteLastNode(data);
                         break;
-                    case 12:
-                        list.ReverseList();
-                        break;
-                    case 13:
+                     case 12:
                         list.BubbleSortExData();
                         break;
-                    case 14:
+                    case 13:
                         list.BubbleSortExLinks();
                         break;
-                    case 15:
+                    case 14:
                         list.MergeSort();
                         break;
-                    case 16:
+                    case 15:
                         Console.Write("Enter the element at which the cycle has to be inserted :");
                         data = Convert.ToInt32(Console.ReadLine());
                         list.InsertCycle(data);
                         break;
-                    case 17:
+                    case 16:
                         if (list.HasCycle())
                             Console.WriteLine("List has a cycle");
                         else
                             Console.WriteLine("List does not have a cycle");
                         break;
-                    case 18:
+                    case 17:
                         list.RemoveCycle();
                         break;
                     default:

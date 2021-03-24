@@ -99,50 +99,7 @@ namespace SingleLinkedListProject
             start.prev = null;
         }
 
-        public void DeleteNode(int x)
-        {
-            if (start == null) //list is empty
-                return;
-            
-            
-            if (start.next == null) // list has only one node
-            {
-                if (start.info == x)
-                    start = null;
-                else
-                    Console.WriteLine(x + "not found");
-                return;
-            }
-            // Deletion of first node
-            if (start.info == x )
-            {
-                start = start.next;
-                start.prev = null;
-                return;
-            }
-
-            Node p = start.next;
-            while (p.next != null )
-            {
-                if (p.info == x)
-                    break;
-                p = p.next;
-            }
-
-            if ( p.next != null ) // node to be deleted is in between
-            {
-                p.prev.next = p.next;
-                p.next.prev = p.prev;
-            }
-            else // p refers to last node
-            {
-                if (p.info == x)
-                    p.prev.next = null;
-                else
-                    Console.WriteLine(x + " not found!");
-            }
-        }
-
+       
         public void DeleteLastNode(int data)
         {
             if (start == null)
@@ -160,16 +117,54 @@ namespace SingleLinkedListProject
             p.link = null;
         }
 
-        internal void DeleteNode()
+        public void DeleteNode(int x)
+        {
+                if (start == null) //list is empty
+                    return;
+
+
+                if (start.next == null) // list has only one node
+                {
+                    if (start.info == x)
+                        start = null;
+                    else
+                        Console.WriteLine(x + "not found");
+                    return;
+                }
+                // Deletion of first node
+                if (start.info == x)
+                {
+                    start = start.next;
+                    start.prev = null;
+                    return;
+                }
+
+                Node p = start.next;
+                while (p.next != null)
+                {
+                    if (p.info == x)
+                        break;
+                    p = p.next;
+                }
+
+                if (p.next != null) // node to be deleted is in between
+                {
+                    p.prev.next = p.next;
+                    p.next.prev = p.prev;
+                }
+                else // p refers to last node
+                {
+                    if (p.info == x)
+                        p.prev.next = null;
+                    else
+                        Console.WriteLine(x + " not found!");
+                }
+            }
+
+        public void InsertAtPosition(int data, int k)
         {
             throw new NotImplementedException();
         }
-
-        internal void InsertAtPosition(int data, int k)
-        {
-            throw new NotImplementedException();
-        }
-
         public void InsertAfter(int data, int x)
         {
             Node temp = new Node(data);
@@ -223,9 +218,23 @@ namespace SingleLinkedListProject
             throw new NotImplementedException();
         }
 
-        internal void ReverseList()
+        public void ReverseList()
         {
-            throw new NotImplementedException();
+            if (start == null)
+                return;
+
+            Node p1 = start;
+            Node p2 = p1.next;
+            p1.next = null;
+            p1.prev = p2;
+            while(p2 != null)
+            {
+                p2.prev = p2.next;
+                p2.next = p1;
+                p1 = p2;
+                p2 = p2.prev;
+            }
+            start = p1;
         }
 
         public void InsertBefore(int data, int x)
@@ -262,12 +271,6 @@ namespace SingleLinkedListProject
                 p.prev.next = temp;
                 p.prev = temp;
             }
-
-
-
         }
-
-
-       
     }
 }
