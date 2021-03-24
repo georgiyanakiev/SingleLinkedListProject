@@ -216,7 +216,7 @@ namespace SingleLinkedListProject
                 p.link = p.link.link;
         }
 
-        internal void DeleteNode()
+        public void DeleteNode()
         {
             throw new NotImplementedException();
         }
