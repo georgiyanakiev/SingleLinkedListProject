@@ -53,6 +53,7 @@
     <Compile Include="NodeCircularLinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleLinkedList.cs" />
+    <Compile Include="SortedLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

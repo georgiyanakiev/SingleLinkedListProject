@@ -160,5 +160,7 @@ namespace SingleLinkedListProject
             list.last.link = p;
             last = list.last;
         }
+
+      
     }
 }

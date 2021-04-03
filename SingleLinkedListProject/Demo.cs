@@ -14,7 +14,7 @@ namespace SingleLinkedListProject
 
             SingleLinkedList list1 = new SingleLinkedList();
             SingleLinkedList list2 = new SingleLinkedList();
-
+            SortedLinkedList list5 = new SortedLinkedList();
             DoubleLinkedList list = new DoubleLinkedList();
             list.CreateList();
 
