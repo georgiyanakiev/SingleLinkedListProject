@@ -566,7 +566,22 @@ namespace SingleLinkedListProject
                 p = p.link;
             p.link = null;
         }
+        public void Concatenate(SingleLinkedList list)
+        {
+            if (start == null)
+            {
+                start = list.start;
+                return;
+            }
+            if (list.start == null)
+                return;
 
+            Node p = start;
+            while (p.link != null)
+                p = p.link;
+
+            p.link = list.start;
+        }
        
     }
 }

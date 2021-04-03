@@ -18,16 +18,23 @@ namespace SingleLinkedListProject
             DoubleLinkedList list = new DoubleLinkedList();
             list.CreateList();
 
-
+            Console.WriteLine("First List - ");
             list1.CreateList();
+            Console.WriteLine("Second List - ");
             list2.CreateList();
 
             list1.BubbleSortExData();
             list2.BubbleSortExData();
 
 
-            Console.WriteLine("First List - "); list1.DisplayList();
-            Console.WriteLine("Second List - "); list2.DisplayList();
+            Console.WriteLine("First"); 
+            list1.DisplayList();
+            Console.WriteLine("Second"); 
+            list2.DisplayList();
+
+            list1.Concatenate(list2);
+            Console.WriteLine("First");
+            list1.DisplayList();
 
             SingleLinkedList list3;
 
